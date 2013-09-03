@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load mapping %}
+
+{% block content %}
+	<div class="page-header">
+		<div class="row">
+			<div class="span6">
+				<p class="large">
+					Tracking the top companies taking money through
+					<a href="http://dropletpay.com/" target="_blank">Droplet</a>, and the
+					kinds of things people buy. <br />
+				</p>
+				<p><strong>It doesn&rsquo;t use any Droplet data</strong>, just tweets.</p>
+				
+				<p>
+					<a class="btn btn-primary btn-large" href="http://dropletpay.com/" target="_blank">Sign up to Droplet <small>for free</small></a>
+				</p>
+				
+				<hr />
+				<div class="row">
+					<div class="span1">
+						<img class="avatar" src="http://www.gravatar.com/avatar/a856e2f2ed9c044cc70cff6bd8f71336.jpg?d=identicon&amp;s=70" />
+					</div>
+
+					<div class="span5">
+						<p>
+							I&rsquo;m <a href="http://marksteadman.com/" target="_blank">Mark Steadman</a>, and I build things for the Internet. I&rsquo;m Technical Director
+							of <a href="http://substrakt.co.uk/" target="_blank">Substrakt</a>, a digital agency in Birmingham,
+							and co-founder of <a href="http://nymbol.co.uk/" target="_blank">Nymbol</a>, a content management
+							system for mobile apps.
+						</p>
+						
+						<p class="small">
+							I like the guys at Droplet, I think they&rsquo;re nice and they&rsquo;re building a great
+							service. I just like to fart around on the Internet and hack things together, so I did this in
+							a few hours with Django, the Twitter API and Bootstrap, natch.
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="span6">
+				<iframe width="570" height="320" src="http://www.youtube.com/embed/r3kfPljfmDM" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="span3">
+			<h3>Top {{ charts.companies.count }} compan{{ charts.companies.count|pluralize:'y,ies' }}</h3>
+			<table class="table table-striped">
+				{% for company in charts.companies %}
+					<tr>
+						<td>{{ forloop.counter }}</td>
+						<td>{% spaceless %}
+							{% if company.url or company.username %}
+							<a href="{% if company.url %}{{ company.url }}{% elif company.username %}http://twitter.com/{{ company.username }}{% endif %}" target="_blank">
+							{% endif %}
+							{{ company.display_name }}
+							{% if company.url or company.username %}</a>{% endif %}
+						{% endspaceless %}</td>
+						<td>&pound;{{ company.total_amount|floatformat:2 }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+		
+		<div class="span9">
+			<h3>And of course, a map</h3>
+			
+			<div class="map-container">
+				{% map '52.486243' '-1.890401' height='400px' %}
+					{% for location in locations %}
+						{% marker location.latitude location.longitude title=location.name content=location.balloon %}
+					{% endfor %}
+				{% endmap %}
+			</div>
+		</div>
+	</div>
+{% endblock content %}

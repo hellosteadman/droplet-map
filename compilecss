@@ -1,0 +1,3 @@
+#!/bin/sh
+
+lessc media/css/src/style.less --compress > media/css/style.css

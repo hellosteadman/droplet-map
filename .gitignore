@@ -1,0 +1,7 @@
+._*
+*.pyc
+logs/*
+static/*
+droplet/settings_local.py
+/Droplet.tmproj
+media/attachments/*

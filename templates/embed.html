@@ -1,0 +1,23 @@
+{% load mapping %}<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Embedded map</title>
+		<script src="{{ STATIC_URL|default:'/static/' }}bootstrap/js/jquery.min.js"></script>
+		<style>
+			body {
+				margin: 0; padding: 0; font-family: sans-serif;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div style="width: {{ map_width }}">
+			{% map '52.486243' '-1.890401' zoom=map_zoom height=map_height %}
+				{% for location in locations %}
+					{% marker location.latitude location.longitude title=location.name content=location.balloon %}
+				{% endfor %}
+			{% endmap %}
+		</div>
+	</div>
+</html>

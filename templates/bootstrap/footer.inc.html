@@ -1,0 +1,40 @@
+{% load icons %}
+
+<p>
+	<small>
+		This site isn&rsquo;t affiliated with Droplet and
+		<strong>does not use any private data</strong>, just tweets
+		people voluntarily post about the transactions they make.
+	</small>
+</p>
+
+<ul id="social-footer-links">
+	<li>
+		<a href="http://twitter.com/mrmarksteadman" target="_blank" title="Twitter" rel="author">{% icon 'twitter-sign' %}</a>
+	</li>
+	
+	<li>
+		<a href="http://github.com/mrmarksteadman" target="_blank" title="GitHub" rel="author">{% icon 'github-sign' %}</a>
+	</li>
+	
+	<li>
+		<a href="https://www.facebook.com/moxypark" target="_blank" title="Facebook" rel="author">{% icon 'facebook-sign' %}</a>
+	</li>
+	
+	<li>
+		<a href="https://plus.google.com/105857414543934776653/posts?partnerid=gplp0" target="_blank" title="Google+" rel="author">{% icon 'google-plus-sign' %}</a>
+	</li>
+	
+	<li>
+		<a href="http://www.linkedin.com/in/mrmarksteadman" target="_blank" title="LinkedIn" rel="author">{% icon 'linkedin-sign' %}</a>
+	</li>
+</ul>
+
+<p>
+	Made by <a href="http://marksteadman.com/" rel="author">Mark Steadman</a> with
+	<a href="https://www.djangoproject.com/" target="_blank">Django</a>
+	using data from <a href="http://twitter.com/" target="_blank">Twitter</a>
+	{% block extra_footer %}{% endblock %}
+</p>
+
+<div class="clearfix"></div>

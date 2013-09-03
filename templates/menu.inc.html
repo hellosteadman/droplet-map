@@ -1,0 +1,10 @@
+{% load url from future %}
+<ul class="nav">
+	<li class="home{% ifequal menu_selection 'home' %} active{% endifequal %}">
+		<a href="{% url 'home' %}">Map</a>
+	</li>
+	
+	{% for page in root_pages %}
+		<li class="menu-page-{{ page.slug }}{% ifequal menu_selection page.slug %} active{% endifequal %}"><a href="{{ page.get_absolute_url }}">{{ page.name }}</a></li>
+	{% endfor %}
+</ul>
