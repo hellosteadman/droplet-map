@@ -1,4 +1,4 @@
-droplet-map
+Droplet map
 ===========
 
-Show Droplet payment locations on a map
+Tracking the top companies taking money through Droplet, and the kinds of things people buy.
