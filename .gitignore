@@ -5,3 +5,4 @@ static/*
 droplet/settings_local.py
 /Droplet.tmproj
 media/attachments/*
+/newrelic.ini
