@@ -89,7 +89,7 @@ INSTALLED_APPS = (
 	'sorl.thumbnail',
 	'bambu.analytics',
 	'bambu.cron',
-	'bambu.bootstrap',
+	'bambu.bootstrap.v2',
 	'bambu.mapping',
 	'bambu.attachments',
 	'bambu.pages',
